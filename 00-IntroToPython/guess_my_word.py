@@ -1,4 +1,10 @@
 import random
+import nltk
+
+from nltk.corpus import words
+nltk.download('words')
+
+
 
 def update_display_word(dw,sw,g): # Letter by letter, check to see if the letter is in the word
     new_display_word = ""
@@ -16,11 +22,18 @@ def main():
     print("Guess My Word")
 
     #Random Word
-    word_options = ['burger', 'funky', 'frogs', 'block']
-    secret_word = random.choice(word_options)
-    # print(secret_word) #TODO: Del
+    # word_options = [r.lower()]
+    # secret_word = random.choice(word_options)
+    # # print(secret_word) #TODO: Del
 
+    def get_random_word():
+        word_list = words.words()
+        filtered_words = [word.lower() for word in word_list if word.isalpha() and 4 <= len(word) <= 7]
+        return random.choice(filtered_words)
+
+    secret_word = get_random_word()
     # Get String Length
+
     word_length = len(secret_word)
     # print(word_length) #TODO: Del
 
