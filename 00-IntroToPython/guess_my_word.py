@@ -5,9 +5,17 @@ import random
 print("Guess My Word")
 
 #Random Word
-secret_word = "dog"
+word_options = ['burger', 'funky', 'frogs', 'block']
+secret_word = random.choice(word_options)
+print(secret_word) #TODO: Del
 
-# Get String Length & Display Word in *'s
+# Get String Length
+word_length = len(secret_word)
+print(word_length) #TODO: Del
+
+# Print Display Word in *'s
+display_word = "*" * word_length
+
 
 # Loop {
 # Prompt For a Letter
