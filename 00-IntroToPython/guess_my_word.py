@@ -1,10 +1,14 @@
-import math
 import random
 
-def update_displayword(dw,sw,g):
+def update_display_word(dw,sw,g): # Letter by letter, check to see if the letter is in the word
+    new_display_word = ""
+    for k in range(len(sw)):  # For all the c
+        if g == sw[k]: # If the guess is equal to the secret word letter at pos "K"
+            new_display_word += g
+        else:
+            new_display_word += dw[k]
+    return new_display_word
 
-
-    # Letter by letter, check to see if the letter is in the word
 
 def main():
 
@@ -14,11 +18,11 @@ def main():
     #Random Word
     word_options = ['burger', 'funky', 'frogs', 'block']
     secret_word = random.choice(word_options)
-    print(secret_word) #TODO: Del
+    # print(secret_word) #TODO: Del
 
     # Get String Length
     word_length = len(secret_word)
-    print(word_length) #TODO: Del
+    # print(word_length) #TODO: Del
 
     # Print Display Word in *'s
     display_word = "*" * word_length
@@ -36,13 +40,15 @@ def main():
             print("You already guessed", guess, "!")
             continue
         guessed_letters.append(guess) # Add the guessed letter to the list of letters that have been guessed
-
+        display_word = update_display_word(display_word, secret_word, guess)
+        print(display_word)
+    print("Yippee!")
 
 
 
     # Update display word - print it
     # if display_word = secret_word, break
-    # Loop }
+    # Loop
 
     # print congrats and amount of guesses
 
