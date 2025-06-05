@@ -88,8 +88,10 @@ class Cloud:
 
 def main():
     """ Main game loop that creates the sprite objects, controls interactions, and draw the screen. """
-    # TODO 1: Initialize the game, display a caption, and set   screen   to a 1000x600 Screen.
-
+    # TO/DO 1: Initialize the game, display a caption, and set   screen   to a 1000x600 Screen.
+    pygame.init()
+    font = pygame.font.SysFont("Ariel", 30)
+    screen = pygame.display.set_mode((1000, 600))
     # TODO 2: Make a Clock
     # TODO 7: As a temporary test, make a new Raindrop called test_drop at x=320 y=10
     # TODO 15: Make a Hero, named mike, with appropriate images, starting at position x=200 y=400.
