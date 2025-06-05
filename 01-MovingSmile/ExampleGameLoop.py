@@ -18,7 +18,7 @@ screen = pygame.display.set_mode((730, 540))
 
 # This is a loop that will run forever, simply because True is always true
 while True:
-    # Here's another loop inside of the first loop. Notice the indentation,
+    # Here's another loop inside the first loop. Notice the indentation,
     # moving one tab width into the while loop makes this statement part of the
     # loop instead of outside of it.
     for event in pygame.event.get():
@@ -52,7 +52,7 @@ while True:
     pygame.draw.circle(screen, pygame.Color("Yellow"),(0,540),10)
     # This will make sure that things appear on our screen, without this
     # update, everything we do will not be visible!
-    # notice how this statement is still inside of the first while loop, but
-    # outside of the for loop (why? because it is at the same level of
+    # notice how this statement is still inside the first while loop, but
+    # outside the for loop (why? because it is at the same level of
     # indentation as the for loop statement).
     pygame.display.update()
