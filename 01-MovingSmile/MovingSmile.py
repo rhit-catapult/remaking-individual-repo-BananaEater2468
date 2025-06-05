@@ -69,7 +69,7 @@ def main():
         pygame.draw.circle(screen, (0, 0, 0), (242 + eye_x, 162 + eye_y), 7)  # black pupil
         pygame.draw.circle(screen, (0, 0, 0), (398 + eye_x, 162 + eye_y), 7)  # black pupil
 
-        pygame.display.update()
+        pygame.display.update(
 
 
 main()
