@@ -95,15 +95,18 @@ def main():
     screen = pygame.display.set_mode((1000, 600))
     # TO/DO 2: Make a Clock
     clock = pygame.time.Clock()
-    clock.tick(60)
     # TODO 7: As a temporary test, make a new Raindrop called test_drop at x=320 y=10
     # TODO 15: Make a Hero, named mike, with appropriate images, starting at position x=200 y=400.
     # TODO 15: Make a Hero, named alyssa, with appropriate images, starting at position x=700 y=400.
     # TODO 23: Make a Cloud, named cloud, with appropriate images, starting at position x=300 y=50.
 
-    # TODO 3: Enter the game loop, with a clock tick of 60 (or so) at each iteration.
-        # TODO 4:   Make the pygame.QUIT event stop the game.
-
+    # TO/DO 3: Enter the game loop, with a clock tick of 60 (or so) at each iteration.
+    while True:
+        clock.tick(60)
+        # TO/DO 4:   Make the pygame.QUIT event stop the game.
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
         # TODO 27: Inside the game loop (AFTER the events loop above), get the list of keys that are currently pressed.
         #     Arrange so that the Cloud moves:
         #       5 pixels (or 10 pixels) to the right if the Right Arrow key (pygame.K_RIGHT) is pressed.
@@ -113,7 +116,8 @@ def main():
         # DISCUSS: If you want something to happen once per key press, put it in the events loop above
         #          If you want something to continually happen while holding the key, put it after the events loop.
 
-        # TODO 5: Inside the game loop, draw the screen (fill with white)
+        # TO/DO 5: Inside the game loop, draw the screen (fill with white)
+        screen.fill(pygame.Color("white"))
 
         # --- begin area of test_drop code that will be removed later
         # TODO 12: As a temporary test, move test_drop
@@ -139,6 +143,7 @@ def main():
         # TODO 18: Draw the Heroes (Mike and Alyssa)
 
         # TODO 6: Update the display and remove the pass statement below
+        pygame.display.update()
 
 
 
