@@ -17,8 +17,11 @@ def main():
     pygame.display.set_caption("Text, Sound, and an Image")
 
     # Prepare the image
+    image = pygame.image.load("2dogs.JPG")
+    image = pygame.transform.scale(image, (IMAGE_SIZE, IMAGE_SIZE))
     # TODO 1: Create an image with the 2dogs.JPG image
     # TODO 3: Scale the image to be the size (IMAGE_SIZE, IMAGE_SIZE)
+
 
     # Prepare the text caption(s)
     # TODO 4: Create a font object with a size 28 font.
@@ -37,6 +40,7 @@ def main():
         screen.fill(WHITE)
 
         # Draw the image onto the screen
+        screen.blit(image,(0,0))
         # TODO 2: Draw (blit) the image onto the screen at position (0, 0)
 
         # Draw the text onto the screen
