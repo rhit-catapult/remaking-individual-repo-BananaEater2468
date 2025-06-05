@@ -11,15 +11,17 @@ def main():
 
     eye_x = 0
     eye_y = 0
+    clock = pygame.time.Clock()
 
     while True:
         # TODO 4: Set the clock speed to 60 fps
+        clock.tick(60)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
             # TODO 3: Make the eye pupils move with Up, Down, Left, and Right keys
             # if event.type == pygame.KEYDOWN: # input detection
-                # pressed_keys = pygame.key.get_pressed()
+            # pressed_keys = pygame.key.get_pressed()
                 # if pressed_keys[pygame.K_s]: # down
                 #     eye_y += 3
                 # if pressed_keys[pygame.K_w]: # up
@@ -28,7 +30,7 @@ def main():
                 #     eye_x += 3
                 # if pressed_keys[pygame.K_a]: # left
                 #     eye_x -=3
-
+        pressed_keys = pygame.key.get_pressed()
         if pressed_keys[pygame.K_s]: # down
             eye_y += 3
         if pressed_keys[pygame.K_w]: # up
