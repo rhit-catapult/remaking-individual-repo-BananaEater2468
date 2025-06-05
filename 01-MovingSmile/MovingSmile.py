@@ -18,16 +18,25 @@ def main():
             if event.type == pygame.QUIT:
                 sys.exit()
             # TODO 3: Make the eye pupils move with Up, Down, Left, and Right keys
-            if event.type == pygame.KEYDOWN: # input detection
-                pressed_keys = pygame.key.get_pressed()
-                if pressed_keys[pygame.K_s]: # down
-                    eye_y += 3
-                if pressed_keys[pygame.K_w]: # up
-                    eye_y -= 3
-                if pressed_keys[pygame.K_d]: # right
-                    eye_x += 3
-                if pressed_keys[pygame.K_a]: # left
-                    eye_x -=3
+            # if event.type == pygame.KEYDOWN: # input detection
+                # pressed_keys = pygame.key.get_pressed()
+                # if pressed_keys[pygame.K_s]: # down
+                #     eye_y += 3
+                # if pressed_keys[pygame.K_w]: # up
+                #     eye_y -= 3
+                # if pressed_keys[pygame.K_d]: # right
+                #     eye_x += 3
+                # if pressed_keys[pygame.K_a]: # left
+                #     eye_x -=3
+
+        if pressed_keys[pygame.K_s]: # down
+            eye_y += 3
+        if pressed_keys[pygame.K_w]: # up
+            eye_y -= 3
+        if pressed_keys[pygame.K_d]: # right
+            eye_x += 3
+        if pressed_keys[pygame.K_a]: # left
+            eye_x -=3
 
 
         screen.fill((255, 255, 255))  # white
