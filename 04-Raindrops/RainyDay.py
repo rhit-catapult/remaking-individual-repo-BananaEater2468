@@ -64,7 +64,7 @@ class Hero:
             self.screen.blit(self.image_no_umbrella, (self.x, self.y))
         else:
             self.screen.blit(self.image_umbrella, (self.x, self.y))
-        # TODO 21: Instead draw (blit) this Hero, at this Hero's position, as follows:
+        # TO/DO 21: Instead draw (blit) this Hero, at this Hero's position, as follows:
         #     If the current time is greater than this Hero's last_hit_time + 1,
         #       draw this Hero WITHOUT an umbrella,
         #       otherwise draw this Hero WITH an umbrella.
@@ -80,19 +80,24 @@ class Hero:
 class Cloud:
     def __init__(self, screen, x, y, image_filename):
         """ Creates a Cloud sprite that will produce Raindrop objects.  The cloud will be moving around. """
-        # TODO 24: Initialize this Cloud, as follows:
+        # TO/DO 24: Initialize this Cloud, as follows:
         #     - Store the screen.
         #     - Set the initial position of this Cloud to x and y.
         #     - Set the image of this Cloud to the given image filename.
         #     - Create a list for Raindrop objects as an empty list called raindrops.
         #   Use instance variables:
         #      screen  x  y  image   raindrops.
-        pass
+        self.screen = screen
+        self.x = x
+        self.y = y
+        self.image = pygame.image.load(image_filename)
+        self.raindrops = []
 
     def draw(self):
         """ Draws this sprite onto the screen. """
         # TODO 25: Draw (blit) this Cloud's image at its current position.
-        pass
+        self.screen.blit(self.image, (self.x, self.y))
+
 
     def rain(self):
         """ Adds a Raindrop to the array of raindrops so that it looks like the Cloud is raining. """
@@ -113,12 +118,13 @@ def main():
     # TO/DO 2: Make a Clock
     clock = pygame.time.Clock()
     # TO/DO 7: As a temporary test, make a new Raindrop called test_drop at x=320 y=10
-    test_drop = Raindrop(screen, 320, 10)
+    test_drop = Raindrop(screen, 200, 10)
     # TO/DO 15: Make a Hero, named mike, with appropriate images, starting at position x=200 y=400.
     # TO/DO 15: Make a Hero, named alyssa, with appropriate images, starting at position x=700 y=400.
     mike = Hero(screen, 200, 400, "Mike_umbrella.png", "Mike.png")
     alyssa = Hero(screen, 700, 400, "Alyssa_umbrella.png", "Alyssa.png")
-    # TODO 23: Make a Cloud, named cloud, with appropriate images, starting at position x=300 y=50.
+    # TO/DO 23: Make a Cloud, named cloud, with appropriate images, starting at position x=300 y=50.
+    cloud = Cloud(screen, 300, 50, "another_cloud.png")
 
     # TO/DO 3: Enter the game loop, with a clock tick of 60 (or so) at each iteration.
     while True:
@@ -155,7 +161,8 @@ def main():
         #          Then add similar code to alyssa that sets her last_hit_time and moves the test_drop to 10 320
         # --- end area of test_drop code that will be removed later
 
-        # TODO 26: Draw the Cloud.
+        # TO/DO 26: Draw the Cloud.
+        cloud.draw()
 
         # TODO 29: Remove the temporary testdrop code from this function and refactor it as follows:
         # TODO: Make the Cloud "rain", then:
