@@ -90,9 +90,12 @@ def main():
     """ Main game loop that creates the sprite objects, controls interactions, and draw the screen. """
     # TO/DO 1: Initialize the game, display a caption, and set   screen   to a 1000x600 Screen.
     pygame.init()
-    font = pygame.font.SysFont("Ariel", 30)
+    pygame.display.set_caption("Rainy Day")
+    # font = pygame.font.SysFont("Ariel", 30)
     screen = pygame.display.set_mode((1000, 600))
-    # TODO 2: Make a Clock
+    # TO/DO 2: Make a Clock
+    clock = pygame.time.Clock()
+    clock.tick(60)
     # TODO 7: As a temporary test, make a new Raindrop called test_drop at x=320 y=10
     # TODO 15: Make a Hero, named mike, with appropriate images, starting at position x=200 y=400.
     # TODO 15: Make a Hero, named alyssa, with appropriate images, starting at position x=700 y=400.
@@ -136,7 +139,8 @@ def main():
         # TODO 18: Draw the Heroes (Mike and Alyssa)
 
         # TODO 6: Update the display and remove the pass statement below
-    pass
+
 
 
 # TODO 0: Call main.
+main()
