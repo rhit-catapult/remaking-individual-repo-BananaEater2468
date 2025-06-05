@@ -39,7 +39,15 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
-
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pos = pygame.mouse.get_pos()
+                distance_to_center = distance(mouse_pos, circle_center)
+                if distance_to_center <= circle_radius:
+                    print("Nice!")
+                    message_text = 'Nice!'
+                else:
+                    print("Miss :(")
+                    message_text = "Miss :("
             # TODO 2: For a MOUSEBUTTONDOWN event get the click position.
                 # TODO 3: Determine the distance between the click position and the circle_center using the distance
                 # TODO 3:   function and save the result into a variable called distance_from_circle
@@ -53,7 +61,8 @@ def main():
         # TODO 1: Draw the circle using the screen, circle_color, circle_center, circle_radius, and circle_border_width
         pygame.draw.circle(screen, circle_color, circle_center, circle_radius, circle_border_width)
         # TODO 6: Create a text image (render the text) based on the message_text with the color (122, 237, 201)
-
+        caption = font.render(message_text, True, text_color)
+        screen.blit(caption, (25, 200))
         screen.blit(instructions_image, (25, 25))
         # TODO 7: Draw (blit) the message to the user that says 'Bullseye!' or 'You missed!'
 
