@@ -44,6 +44,7 @@ def main_game_loop(screen):
                 pressed_keys = pygame.key.get_pressed()
                 if pressed_keys[pygame.K_SPACE]:
                     fighter.fire()
+
             if event.type == pygame.QUIT:
                 sys.exit()
 
