@@ -14,6 +14,7 @@ class Ball:
         self.speed_y = speed_y
         self.color = color
         self.radius = radius
+        # self.balls = []
 
     def move(self):
 
@@ -89,6 +90,10 @@ def main():
 
         pygame.display.update()
 
+
+        # for balls in Ball.balls:
+        #     balls.draw()
+        #     balls.move()
 
 main()
 
