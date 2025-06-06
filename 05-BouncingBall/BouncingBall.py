@@ -2,32 +2,45 @@ import pygame
 import sys
 import random
 
+from pygame.examples.scrap_clipboard import screen
+
 
 class Ball:
-    def __init__(self, screen, x, y):
+    def __init__(self,screen,color,x,y,radius,speed_x,speed_y):
         self.screen = screen
         self.x = x
         self.y = y
-        self.speedx = random.randint(1,5)
-        self.speedy = random.randint(1,5)
+        self.speed_x = speed_x
+        self.speed_y = speed_y
+        self.color = color
+        self.radius = radius
 
     def move(self):
-        self.y += self.speedx
-        self.y += self.speedy
 
-    def draw(self):
-        pygame.draw.circle(self.screen, (random.randint(0-255),random.randint(0-255),random.randint(0-255),))
+        if self.y - self.radius <= 0 or self.y + self.radius >= self.screen.get_height():
+            self.speed_y = -self.speed_y
+        if self.x - self.radius <= 0 or self.x + self.radius>= self.screen.get_width():
+            self.speed_x = -self.speed_x
+        self.x += self.speed_x
+        self.y += self.speed_y
 
-    def at_lrborder(self): # L & R
-        return self.x < 0 or self.x > self.screen.get_width()
-
-    def at_udborder(self): # U & D
-        return self.y < 0 or self.y > self.screen.get_height()
 
 
 
 
-Ball.draw(screen, 2, 2)
+    def draw(self):
+        pygame.draw.circle(self.screen, self.color, (self.x, self.y), self.radius)
+
+    # def at_lrborder(self): # L & R
+    #     return self.x < 0 or self.x + > self.screen.get_width()
+    #
+    # def at_udborder(self): # U & D
+    #     return self.y < 0 or self.y > self.screen.get_height()
+
+
+
+
+
 
 
 
@@ -35,9 +48,9 @@ Ball.draw(screen, 2, 2)
 
 # You will implement this module ENTIRELY ON YOUR OWN!
 
-# TODO: Create a Ball class.
-# TODO: Possible member variables: screen, color, x, y, radius, speed_x, speed_y
-# TODO: Methods: __init__, draw, move
+# TO/DO: Create a Ball class.
+# TO/DO: Possible member variables: screen, color, x, y, radius, speed_x, speed_y
+# TO/DO: Methods: __init__, draw, move
 
 
 def main():
@@ -47,7 +60,19 @@ def main():
     screen.fill(pygame.Color('gray'))
     clock = pygame.time.Clock()
 
+    radius = random.randint(1, 5)
+    x = random.randint(0 + radius, screen.get_width() - radius)
+    y=  random.randint(0 + radius, screen.get_height() - radius)
+    speed_x = random.randint(1, 12)
+    speed_y = random.randint(1,12)
+
+    color = (random.randint(0,255),random.randint(0,255),random.randint(0,255))
+
     # TODO: Create an instance of the Ball class called ball1
+    ball1 = Ball(screen,color,x,y,radius,speed_x,speed_y)
+
+
+
 
     while True:
         for event in pygame.event.get():
@@ -55,8 +80,10 @@ def main():
                 sys.exit()
 
         clock.tick(60)
-        screen.fill(pygame.Color('gray'))
+        screen.fill(pygame.Color('white'))
 
+        ball1.draw()
+        ball1.move()
         # TODO: Move the ball
         # TODO: Draw the ball
 
