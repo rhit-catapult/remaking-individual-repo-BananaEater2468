@@ -105,7 +105,8 @@ class Cloud:
         #     where the new Raindrop starts at:
         #       - x is a random integer between this Cloud's x and this Cloud's x + 300.
         #       - y is this Cloud's y + 100.
-        pass
+        new_drop = Raindrop(self.screen, random.randint(self.x, self.x+self.image.get_width()), self.y + self.image.get_height() - 10)
+        self.raindrops.append(new_drop)
 
 
 def main():
