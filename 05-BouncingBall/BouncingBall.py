@@ -3,6 +3,36 @@ import sys
 import random
 
 
+class Ball:
+    def __init__(self, screen, x, y):
+        self.screen = screen
+        self.x = x
+        self.y = y
+        self.speedx = random.randint(1,5)
+        self.speedy = random.randint(1,5)
+
+    def move(self):
+        self.y += self.speedx
+        self.y += self.speedy
+
+    def draw(self):
+        pygame.draw.circle(self.screen, (random.randint(0-255),random.randint(0-255),random.randint(0-255),))
+
+    def at_lrborder(self): # L & R
+        return self.x < 0 or self.x > self.screen.get_width()
+
+    def at_udborder(self): # U & D
+        return self.y < 0 or self.y > self.screen.get_height()
+
+
+
+
+Ball.draw(screen, 2, 2)
+
+
+
+
+
 # You will implement this module ENTIRELY ON YOUR OWN!
 
 # TODO: Create a Ball class.
