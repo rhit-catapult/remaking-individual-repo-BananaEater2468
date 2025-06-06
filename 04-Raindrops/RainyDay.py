@@ -17,6 +17,7 @@ class Raindrop:
         self.y = y
         self.speed = random.randint(5,15)
 
+
     def move(self):
         """ Move the self.y value of the Raindrop down the screen (y increase) at the self.speed. """
         # TO/DO 11: Change the  y  position of this Raindrop by its speed.
@@ -163,8 +164,6 @@ def main():
         # TO/DO 10: As a temporary test, draw test_drop
         # test_drop.draw()
         # TO/DO 20: As a temporary test, check if test_drop is hitting Mike (or Alyssa), if so set their last_hit_time
-        # if mike.hit_by(test_drop):
-        #     mike.last_hit_time = time.time()
         # TO/DO 22: Remove the code that reset the y of the test_drop when off_screen()
         #          Instead reset the test_drop y to 10 when mike is hit, additionally set the x to 750
         #          Then add similar code to alyssa that sets her last_hit_time and moves the test_drop to 10 320
@@ -186,8 +185,12 @@ def main():
             raindrop.draw()
             if mike.hit_by(raindrop):
                 mike.last_hit_time = time.time()
+                cloud.raindrops.remove(raindrop)
             if alyssa.hit_by(raindrop):
                 alyssa.last_hit_time = time.time()
+                cloud.raindrops.remove(raindrop)
+            if raindrop.off_screen():
+                cloud.raindrops.remove(raindrop)
         # TO/DO 18: Draw the Heroes (Mike and Alyssa)
         mike.draw()
         alyssa.draw()
