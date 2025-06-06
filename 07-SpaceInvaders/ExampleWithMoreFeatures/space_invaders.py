@@ -24,7 +24,7 @@ def main():
 
 
 def main_game_loop(screen):
-    allow_supergun = False
+    allow_supergun = True
 
     INITIAL_NUM_ROWS = 4
     enemy_rows = INITIAL_NUM_ROWS
@@ -51,9 +51,10 @@ def main_game_loop(screen):
         # Doing something continually when a key is HELD DOWN
         pressed_keys = pygame.key.get_pressed()
         if pressed_keys[pygame.K_LEFT]:
-            fighter.move(-5)
+            fighter.move(-100)
         if pressed_keys[pygame.K_RIGHT]:
-            fighter.move(5)
+            fighter.move(100)
+
 
         # Optional
         if allow_supergun and pressed_keys[pygame.K_SPACE]:
